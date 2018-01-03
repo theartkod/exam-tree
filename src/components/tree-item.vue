@@ -34,15 +34,11 @@
     props: {
       model: {
         type: Object,
-        default: function () {
-          return {}
-        }
+        default: () => {}
       },
       options: {
         type: Object,
-        default: function () {
-          return {}
-        }
+        default: () => {}
       },
 
       depth: {
@@ -52,23 +48,17 @@
 
       ids: {
         type: Array,
-        default: function () {
-          return []
-        }
+        default: () => []
       },
 
       idsWithParent: {
         type: Array,
-        default: function () {
-          return []
-        }
+        default: () => []
       },
 
       half: {
         type: Array,
-        default: function () {
-          return []
-        }
+        default: () => []
       },
 
       state: {

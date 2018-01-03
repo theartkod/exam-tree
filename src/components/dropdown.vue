@@ -18,7 +18,7 @@
    *  checkedOpen - open checked folder or no
    *  halfCheckedIcon - class for half state
    *  checkedIcon - class for checked state
-   *  depthOpen - depth opened folder by default
+   *  depthOpen - depth opened folders by default
    *  uncheckedIcon - class for unchecked state
    * }
    */
@@ -26,7 +26,7 @@
     mixins: [clickOut],
     components: { Tree },
     name: "dropdown",
-    data() {
+    data () {
       return {
         filter: '',
         isOpen: false,
