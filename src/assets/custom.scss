@@ -1,0 +1,52 @@
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease .2s;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  cursor: pointer;
+  float: left;
+
+  &--empty {
+    background-color: #f5f5f5;
+    .check__checkmark {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &--half {
+    background-color: #0064b1;
+    .check__checkmark {
+      &:after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 0;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &--fill {
+    background-color: #0064b1;
+    .check__checkmark {
+      &:after {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 6px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  // Some custom class
+}

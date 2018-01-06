@@ -1,7 +1,7 @@
 <template>
   <div class="tree-list">
     <tree-item
-      v-for="(item, idx) in treeData"
+      v-for="(item, idx) in filterlist"
       :ids="ids"
       :ids-with-parent="idsWithParent"
       :model="item"
@@ -35,8 +35,8 @@
         default: ''
       },
       treeData: {
-        type: Array,
-        default: () => []
+        type: Object,
+        default: () => {}
       },
       options: {
         type: Object,
@@ -80,7 +80,20 @@
 
     computed: {
       filterlist () {
-        // TODO:(vik_kod) Need filter for search
+        let self = this;
+        const exp = new RegExp(self.filter, 'ig');
+
+        function deepFilter(children){
+          return children.filter(function(item){
+            let c = item.children ? deepFilter(item.children) : exp.test(item.label)
+            if(c.length === 0){
+              return false;
+            } else {
+              return c;
+            }
+          })
+        }
+       return deepFilter(this.treeData.children);
       },
     },
 

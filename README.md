@@ -1,6 +1,8 @@
 # exam
 
-> A Vue.js project
+> Tree component
+
+![](https://media.giphy.com/media/3oFzmowOXIMjxvK0IU/giphy.gif)
 
 ## Build Setup
 

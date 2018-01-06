@@ -1,9 +1,11 @@
 <template>
   <div class="wrap">
     <input type="text" placeholder="Быстрый поиск" @focus="isOpen = true" v-model="filter">
-    <div class="dropdown" v-show="isOpen">
-      <tree :filter="filter" :tree-data="treeData" :options="options"></tree>
-    </div>
+    <transition name="slide">
+      <div class="dropdown" v-show="isOpen">
+        <tree :filter="filter" :tree-data="treeData" :options="options"></tree>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -40,12 +42,11 @@
           checkedIcon: 'check--fill',
           uncheckedIcon: 'check--empty'
         },
-        treeData: [
-          {
-            label: '1 Level',
-            id: 1,
+        treeData: {
             children: [
               {label: '2 Level', id: 2},
+              {label: '2 Level qwerwr', id: 98765},
+              {label: '2 Level some', id: 965},
               {
                 label: '2 Level',
                 id: 4,
@@ -64,7 +65,6 @@
               }
             ]
           }
-        ]
       }
     },
     methods: {
@@ -120,5 +120,14 @@
       border-radius: 6px;
       background-color: #0064b1;
     }
+  }
+
+  .slide-enter-active, .slide-leave-active {
+    transition: all ease-in-out .2s;
+  }
+
+  .slide-enter, .slide-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
   }
 </style>
